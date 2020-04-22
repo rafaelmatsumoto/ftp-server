@@ -1,0 +1,14 @@
+version: "2.4"
+services:
+  ftp:
+    image: bogem/ftp
+    ports:
+      - "20:20"
+      - "21:21"
+      - "47400-47470:47400-47470"
+    environment:
+      - FTP_USER=${FTP_USER}
+      - FTP_PASS=${FTP_PASS}
+      - PASV_ADDRESS=10.0.75.1
+    volumes:
+      - ./ftp:/home/vsftpd
